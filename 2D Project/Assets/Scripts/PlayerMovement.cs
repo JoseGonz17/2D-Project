@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public float checkGroundDistance = 1;
 
+    public FixedJoystick myJoystick;
+
+    public Animator playerSpriteAnimator;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -24,11 +28,29 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        xDirection = Input.GetAxisRaw("Horizontal");
+        xDirection = myJoystick.Horizontal;
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        playerSpriteAnimator.SetFloat("Speed", Mathf.Abs(xDirection));
+
+        if (myJoystick.Vertical > 0.7f && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+        if (rb.velocity.x > 0.01f)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (rb.velocity.x < 0.01f)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        if (rb.velocity.y != 0)
+        {
+            playerSpriteAnimator.SetBool("IsJumping", true);
+        }
+        else
+        {
+            playerSpriteAnimator.SetBool("IsJumping", false);
         }
     }
 

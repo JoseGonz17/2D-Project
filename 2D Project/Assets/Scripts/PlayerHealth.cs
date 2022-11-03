@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class PlayerHealth : PlayerTrigger
 {
-    public float currentHealth;
-    public float maxHealth = 100;
+    //public float currentHealth;
+    //public float maxHealth = 100;
 
-    public void Start()
-    {
-        currentHealth = maxHealth;
+    //public void Start()
+    //{
+    //    currentHealth = maxHealth;
 
-        Debug.Log("Ahora tengo " + currentHealth + " de vida");
-    }
+    //    Debug.Log("Ahora tengo " + currentHealth + " de vida");
+    //}
 
-    private void OnTriggerEnter(Collider other)
-    {
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //}
 }
