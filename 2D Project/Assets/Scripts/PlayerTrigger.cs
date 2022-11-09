@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class PlayerTrigger : MonoBehaviour
 {
-    private string PlayerTag = ("Player");
+    //private string PlayerTag = ("Player");
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag(PlayerTag))
-        {
-            OnPlayerEnter(other.gameObject);
-        }
-    }
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag(PlayerTag))
+    //    {
+    //        OnPlayerEnter(other.gameObject);
+    //    }
+    //}
 
-    private void OnPlayerEnter(GameObject gameObject)
-    {
-    }
+    //private void OnPlayerEnter(GameObject gameObject)
+    //{
+    //}
 }
